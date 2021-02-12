@@ -45,12 +45,14 @@ export default function Map() {
 	const [GCP_API_KEY, SET_GCP_API_KEY] = useState('');
 	const [IS_API_KEY_LOADED, SET_IS_API_KEY_LOADED] = useState(false);
 
+	const [userLocationString, setUserLocationString] = useState('');
+
 	const getGeocoding = async (latitude: number, longitude: number) => {
 		Geocoder.init(GCP_API_KEY);
 		const geoRes = await Geocoder.from({ latitude, longitude });
 		const address = geoRes.results[0].formatted_address;
-
-		console.warn(address);
+		const minAddress = address.substring(0, address.indexOf(','));
+		setUserLocationString(minAddress);
 	};
 
 	/* Get user location on start */
@@ -113,8 +115,6 @@ export default function Map() {
 
 			setDestinationLoaded(true);
 		}
-
-		console.log(details, geometry);
 	};
 
 	let mapView = useRef(null) as any;
@@ -179,7 +179,7 @@ export default function Map() {
 									<LocationTimeUnitText>MIN</LocationTimeUnitText>
 								</LocationTimeBox>
 
-								<LocationText>Rua dos Bobos</LocationText>
+								<LocationText>{userLocationString}</LocationText>
 							</LocationBox>
 						</Marker>
 
