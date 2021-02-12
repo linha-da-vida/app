@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, View, Text, Dimensions } from 'react-native';
 import * as Permission from 'expo-permissions';
 import { getPixelSize } from '../../utils/getPixelSize';
+import api from '../../config/api';
+import Geocoder from 'react-native-geocoding';
 
 import markerImage from '../../../assets/marker.png';
 import {
@@ -40,9 +42,35 @@ export default function Map() {
 	const [destinationLoaded, setDestinationLoaded] = useState(false);
 	const [duration, setDuration] = useState(0);
 
+	const [GCP_API_KEY, SET_GCP_API_KEY] = useState('');
+	const [IS_API_KEY_LOADED, SET_IS_API_KEY_LOADED] = useState(false);
+
+	const getGeocoding = async (latitude: number, longitude: number) => {
+		Geocoder.init(GCP_API_KEY);
+		const geoRes = await Geocoder.from({ latitude, longitude });
+		const address = geoRes.results[0].formatted_address;
+
+		console.warn(address);
+	};
+
+	/* Get user location on start */
 	useEffect(() => {
+		(async function getGCPApiKey() {
+			try {
+				const res = await api.get('/GCP_API');
+				if (res.data.msg) {
+					SET_GCP_API_KEY(res.data.msg);
+					SET_IS_API_KEY_LOADED(true);
+					return true;
+				}
+			} catch (err) {
+				SET_IS_API_KEY_LOADED(false);
+				return false;
+			}
+		})();
+
 		navigator.geolocation.getCurrentPosition(
-			({ coords: { latitude, longitude } }) => {
+			async ({ coords: { latitude, longitude } }) => {
 				setRegion({
 					latitude,
 					longitude,
@@ -61,6 +89,15 @@ export default function Map() {
 			{ timeout: 2000, enableHighAccuracy: true, maximumAge: 1000 }
 		);
 	}, []);
+
+	// Get user location geocoding as soon as API KEY is loaded
+	useEffect(() => {
+		if (userRegion.latitude !== 0 && GCP_API_KEY !== '') {
+			getGeocoding(userRegion.latitude, userRegion.longitude);
+		} else {
+			// Loading user location...
+		}
+	}, [GCP_API_KEY, userRegion]);
 
 	const handleLocationSelected = (details: any, { geometry }: any) => {
 		const {
