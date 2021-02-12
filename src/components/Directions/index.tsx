@@ -35,7 +35,7 @@ const Directions = ({ destination, origin, onReady }: DirectionsProps) => {
 					origin={origin}
 					onReady={onReady}
 					apikey={GCP_API_KEY}
-					strokeColor='#222'
+					strokeColor='#04A777'
 					strokeWidth={3}
 				/>
 			)}
