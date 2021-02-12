@@ -4,6 +4,8 @@ import { StyleSheet, View, Text, Dimensions } from 'react-native';
 import * as Permission from 'expo-permissions';
 
 import Search from '../Search';
+import Directions from '../Directions';
+import routes from '../../routes';
 
 export default function Map() {
 	const [region, setRegion] = useState({
@@ -12,6 +14,9 @@ export default function Map() {
 		latitudeDelta: 0,
 		longitudeDelta: 0,
 	});
+
+	const [destination, setDestination] = useState({});
+	const [destinationLoaded, setDestinationLoaded] = useState(false);
 
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition(
@@ -28,6 +33,24 @@ export default function Map() {
 		);
 	}, []);
 
+	const handleLocationSelected = (details: any, { geometry }: any) => {
+		const {
+			location: { lat: latitude, lng: longitude },
+		} = geometry;
+
+		if (details) {
+			setDestination({
+				latitude,
+				longitude,
+				title: details.structured_formatting.main_text,
+			});
+
+			setDestinationLoaded(true);
+		}
+
+		console.log(details, geometry);
+	};
+
 	return (
 		<View style={{ flex: 1 }}>
 			<MapView
@@ -38,9 +61,21 @@ export default function Map() {
 				region={region}
 				showsUserLocation
 				loadingEnabled
-			/>
+			>
+				{destinationLoaded && (
+					<Directions
+						origin={region}
+						destination={destination}
+						onReady={() => {}}
+					/>
+				)}
+			</MapView>
 
-			<Search />
+			<Search
+				handleLocationSelected={(details: any, geometry: any) =>
+					handleLocationSelected(details, geometry)
+				}
+			/>
 		</View>
 	);
 }

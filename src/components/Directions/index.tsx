@@ -29,7 +29,7 @@ const Directions = ({ destination, origin, onReady }: DirectionsProps) => {
 
 	return (
 		<>
-			{IS_API_KEY_LOADED ? (
+			{IS_API_KEY_LOADED && (
 				<MapViewDirections
 					destination={destination}
 					origin={origin}
@@ -38,12 +38,9 @@ const Directions = ({ destination, origin, onReady }: DirectionsProps) => {
 					strokeColor='#222'
 					strokeWidth={3}
 				/>
-			) : (
-				// Add a spinner here
-				<View style={{ position: 'absolute' }}>
-					<Text style={{ fontSize: 50 }}>Loading...</Text>
-				</View>
 			)}
 		</>
 	);
 };
+
+export default Directions;

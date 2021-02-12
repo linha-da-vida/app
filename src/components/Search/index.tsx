@@ -5,7 +5,13 @@ import { Text, View } from 'react-native';
 import api from '../../config/api';
 import { v4 as uuidv4 } from 'uuid';
 
-const GooglePlacesInput = () => {
+interface GPlacesAutocompleteProps {
+	handleLocationSelected: any;
+}
+
+const GooglePlacesInput = ({
+	handleLocationSelected,
+}: GPlacesAutocompleteProps) => {
 	const [GCP_API_KEY, SET_GCP_API_KEY] = useState('');
 	const [IS_API_KEY_LOADED, SET_IS_API_KEY_LOADED] = useState(false);
 
@@ -28,10 +34,7 @@ const GooglePlacesInput = () => {
 			{IS_API_KEY_LOADED ? (
 				<GooglePlacesAutocomplete
 					placeholder='Para onde?'
-					onPress={(data, details = null) => {
-						// 'details' is provided when fetchDetails = true
-						console.log(data, details);
-					}}
+					onPress={handleLocationSelected}
 					query={{
 						key: GCP_API_KEY,
 						language: 'pt',
