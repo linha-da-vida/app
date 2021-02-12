@@ -5,7 +5,13 @@ import * as Permission from 'expo-permissions';
 import { getPixelSize } from '../../utils/getPixelSize';
 
 import markerImage from '../../../assets/marker.png';
-import { LocationBox, LocationText } from './styles';
+import {
+	LocationBox,
+	LocationText,
+	LocationTimeBox,
+	LocationTimeText,
+	LocationTimeUnitText,
+} from './styles';
 
 import Search from '../Search';
 import Directions from '../Directions';
@@ -19,17 +25,32 @@ export default function Map() {
 		longitudeDelta: 0,
 	});
 
+	const [userRegion, setUserRegion] = useState({
+		latitude: 0,
+		longitude: 0,
+		latitudeDelta: 0,
+		longitudeDelta: 0,
+	});
+
 	const [destination, setDestination] = useState({
 		latitude: 0,
 		longitude: 0,
 		title: '',
 	});
 	const [destinationLoaded, setDestinationLoaded] = useState(false);
+	const [duration, setDuration] = useState(0);
 
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition(
 			({ coords: { latitude, longitude } }) => {
 				setRegion({
+					latitude,
+					longitude,
+					latitudeDelta: 0.0143,
+					longitudeDelta: 0.0134,
+				});
+
+				setUserRegion({
 					latitude,
 					longitude,
 					latitudeDelta: 0.0143,
@@ -61,6 +82,31 @@ export default function Map() {
 
 	let mapView = useRef(null) as any;
 
+	interface Region {
+		latitude: number;
+		longitude: number;
+		latitudeDelta: number;
+		longitudeDelta: number;
+	}
+
+	// Updates region every time the movement stops (whether user gesture or animation)
+	const _onRegionChangeComplete = (region: Region) => {
+		setRegion(region);
+	};
+
+	const getViewFromAbove = (result: any) => {
+		if (mapView) {
+			mapView.fitToCoordinates(result.coordinates, {
+				edgePadding: {
+					right: getPixelSize(40),
+					left: getPixelSize(40),
+					top: getPixelSize(40),
+					bottom: getPixelSize(40),
+				},
+			});
+		}
+	};
+
 	return (
 		<View style={{ flex: 1 }}>
 			<MapView
@@ -69,6 +115,7 @@ export default function Map() {
 				}}
 				style={styles.mapStyle}
 				region={region}
+				onRegionChangeComplete={_onRegionChangeComplete}
 				showsUserLocation
 				loadingEnabled
 				ref={(el) => {
@@ -78,19 +125,27 @@ export default function Map() {
 				{destinationLoaded && (
 					<>
 						<Directions
-							origin={region}
+							origin={userRegion}
 							destination={destination}
 							onReady={(result: any) => {
-								mapView.fitToCoordinates(result.coordinates, {
-									edgePadding: {
-										right: getPixelSize(35),
-										left: getPixelSize(35),
-										top: getPixelSize(35),
-										bottom: getPixelSize(35),
-									},
-								});
+								getViewFromAbove(result);
+
+								setDuration(Math.floor(result.duration));
 							}}
 						/>
+						<Marker coordinate={userRegion} anchor={{ x: 0, y: 0 }}>
+							<LocationBox>
+								<LocationTimeBox>
+									<LocationTimeText>
+										{duration === 0 ? '' : duration}
+									</LocationTimeText>
+									<LocationTimeUnitText>MIN</LocationTimeUnitText>
+								</LocationTimeBox>
+
+								<LocationText>Rua dos Bobos</LocationText>
+							</LocationBox>
+						</Marker>
+
 						<Marker
 							coordinate={destination}
 							anchor={{ x: 0, y: 0 }}
