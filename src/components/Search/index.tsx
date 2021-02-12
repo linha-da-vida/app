@@ -20,12 +20,16 @@ const GooglePlacesInput = ({
 		(async () => {
 			try {
 				const res = await api.get('/GCP_API');
+				console.log('DATA SUPPOSED TO GO HERE:');
+				console.log(JSON.stringify(res.data));
+
 				if (res.data.msg) {
 					SET_GCP_API_KEY(res.data.msg);
 					SET_IS_API_KEY_LOADED(true);
 				}
 			} catch (err) {
 				SET_IS_API_KEY_LOADED(false);
+				console.log('failed badly');
 			}
 		})();
 	}, []);

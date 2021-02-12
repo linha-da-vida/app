@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-	baseURL: 'http://192.168.15.9:3000',
+	baseURL: process.env.REACT_NATIVE_SERVER_URI,
 });
 
 export default client;
