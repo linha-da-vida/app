@@ -2,6 +2,7 @@ import MapView from 'react-native-maps';
 import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, View, Text, Dimensions } from 'react-native';
 import * as Permission from 'expo-permissions';
+import { getPixelSize } from '../../utils/getPixelSize';
 
 import Search from '../Search';
 import Directions from '../Directions';
@@ -72,7 +73,14 @@ export default function Map() {
 						origin={region}
 						destination={destination}
 						onReady={(result: any) => {
-							mapView.fitToCoordinates(result.coordinates);
+							mapView.fitToCoordinates(result.coordinates, {
+								edgePadding: {
+									right: getPixelSize(35),
+									left: getPixelSize(35),
+									top: getPixelSize(35),
+									bottom: getPixelSize(35),
+								},
+							});
 						}}
 					/>
 				)}
