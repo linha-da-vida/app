@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import Constants from 'expo-constants';
 import { Text, View } from 'react-native';
 import api from '../../config/api';
 import { v4 as uuidv4 } from 'uuid';
@@ -20,8 +19,6 @@ const GooglePlacesInput = ({
 		(async () => {
 			try {
 				const res = await api.get('/GCP_API');
-				console.log('DATA SUPPOSED TO GO HERE:');
-				console.log(JSON.stringify(res.data));
 
 				if (res.data.msg) {
 					SET_GCP_API_KEY(res.data.msg);
@@ -29,7 +26,6 @@ const GooglePlacesInput = ({
 				}
 			} catch (err) {
 				SET_IS_API_KEY_LOADED(false);
-				console.log('failed badly');
 			}
 		})();
 	}, []);
