@@ -1,23 +1,26 @@
 import MapView, { Marker } from 'react-native-maps';
 import React, { useEffect, useRef, useState } from 'react';
-import { StyleSheet, View, Text, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, Dimensions, Image } from 'react-native';
 import * as Permission from 'expo-permissions';
 import { getPixelSize } from '../../utils/getPixelSize';
 import api from '../../config/api';
 import Geocoder from 'react-native-geocoding';
 
 import markerImage from '../../../assets/marker.png';
+import backImage from '../../../assets/back.png';
+
 import {
 	LocationBox,
 	LocationText,
 	LocationTimeBox,
 	LocationTimeText,
 	LocationTimeUnitText,
+	Back,
 } from './styles';
 
 import Search from '../Search';
 import Directions from '../Directions';
-import routes from '../../routes';
+import Details from '../Details';
 
 export default function Map() {
 	const [region, setRegion] = useState({
@@ -138,10 +141,20 @@ export default function Map() {
 					right: getPixelSize(40),
 					left: getPixelSize(40),
 					top: getPixelSize(40),
-					bottom: getPixelSize(40),
+					bottom: getPixelSize(340),
 				},
 			});
 		}
+	};
+
+	const handleBack = () => {
+		setDestination({
+			latitude: 0,
+			longitude: 0,
+			title: '',
+		});
+
+		setDestinationLoaded(false);
 	};
 
 	return (
@@ -196,11 +209,20 @@ export default function Map() {
 				)}
 			</MapView>
 
-			<Search
-				handleLocationSelected={(details: any, geometry: any) =>
-					handleLocationSelected(details, geometry)
-				}
-			/>
+			{destinationLoaded ? (
+				<>
+					<Back onPress={handleBack}>
+						<Image source={backImage} />
+					</Back>
+					<Details />
+				</>
+			) : (
+				<Search
+					handleLocationSelected={(details: any, geometry: any) =>
+						handleLocationSelected(details, geometry)
+					}
+				/>
+			)}
 		</View>
 	);
 }
