@@ -1,18 +1,30 @@
 import MapView from 'react-native-maps';
 import React from 'react';
-import { StyleSheet, View, Text, Dimensions } from 'react-native';
+import {
+	StyleSheet,
+	View,
+	Text,
+	Dimensions,
+	PermissionsAndroid,
+} from 'react-native';
+import * as Permission from 'expo-permissions';
 
 export default function index() {
 	return (
-		<View>
+		<View style={{ flex: 1 }}>
 			<MapView
-				style={styles.mapStyle}
-				initialRegion={{
-					latitude: 37.78825,
-					longitude: -122.4324,
-					latitudeDelta: 0.0922,
-					longitudeDelta: 0.0421,
+				onMapReady={async () => {
+					const { status } = await Permission.askAsync(Permission.LOCATION);
 				}}
+				style={styles.mapStyle}
+				region={{
+					latitude: -20.316839,
+					longitude: -40.309921,
+					latitudeDelta: 0.0143,
+					longitudeDelta: 0.0134,
+				}}
+				showsUserLocation
+				loadingEnabled
 			/>
 		</View>
 	);
