@@ -2,20 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-	return (
-		<View style={styles.container}>
-			<Text>App Linha da Vida</Text>
-			<StatusBar style='auto' />
-		</View>
-	);
-}
+import Routes from './src/routes';
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});
+export default function App() {
+	return <Routes />;
+}
