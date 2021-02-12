@@ -33,7 +33,7 @@ export const TypeImage = styled.Image`
 `;
 
 export const RequestButton = styled.TouchableOpacity`
-	background: #222;
+	background: #439355;
 	justify-content: center;
 	align-items: center;
 	height: 44px;
@@ -53,6 +53,7 @@ export const TypesContainer = styled.View`
 	flex: 1;
 	width: 100%;
 	justify-content: space-evenly;
+	margin-top: 10px;
 `;
 
 export const Type = styled.View`
