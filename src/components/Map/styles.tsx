@@ -33,7 +33,7 @@ export const LocationText = styled.Text`
 `;
 
 export const LocationTimeBox = styled.View`
-	background: #222;
+	background: #04a777;
 	padding: 3px 8px;
 `;
 
@@ -53,4 +53,5 @@ export const Back = styled.TouchableOpacity`
 	position: absolute;
 	top: ${Platform.select({ ios: 60, android: 40 })};
 	left: 20px;
+	color: #04a777;
 `;
