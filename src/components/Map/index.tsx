@@ -1,8 +1,11 @@
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, View, Text, Dimensions } from 'react-native';
 import * as Permission from 'expo-permissions';
 import { getPixelSize } from '../../utils/getPixelSize';
+
+import markerImage from '../../../assets/marker.png';
+import { LocationBox, LocationText } from './styles';
 
 import Search from '../Search';
 import Directions from '../Directions';
@@ -16,7 +19,11 @@ export default function Map() {
 		longitudeDelta: 0,
 	});
 
-	const [destination, setDestination] = useState({});
+	const [destination, setDestination] = useState({
+		latitude: 0,
+		longitude: 0,
+		title: '',
+	});
 	const [destinationLoaded, setDestinationLoaded] = useState(false);
 
 	useEffect(() => {
@@ -69,20 +76,31 @@ export default function Map() {
 				}}
 			>
 				{destinationLoaded && (
-					<Directions
-						origin={region}
-						destination={destination}
-						onReady={(result: any) => {
-							mapView.fitToCoordinates(result.coordinates, {
-								edgePadding: {
-									right: getPixelSize(35),
-									left: getPixelSize(35),
-									top: getPixelSize(35),
-									bottom: getPixelSize(35),
-								},
-							});
-						}}
-					/>
+					<>
+						<Directions
+							origin={region}
+							destination={destination}
+							onReady={(result: any) => {
+								mapView.fitToCoordinates(result.coordinates, {
+									edgePadding: {
+										right: getPixelSize(35),
+										left: getPixelSize(35),
+										top: getPixelSize(35),
+										bottom: getPixelSize(35),
+									},
+								});
+							}}
+						/>
+						<Marker
+							coordinate={destination}
+							anchor={{ x: 0, y: 0 }}
+							image={markerImage}
+						>
+							<LocationBox>
+								<LocationText> {destination.title} </LocationText>
+							</LocationBox>
+						</Marker>
+					</>
 				)}
 			</MapView>
 
