@@ -9,12 +9,7 @@ import {
 } from 'react-native';
 // import styles from './styles';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { SimpleLineIcons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
-import { Foundation } from '@expo/vector-icons';
+import { FontAwesome, MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
 
 import Map from '../Map';
 
@@ -32,9 +27,11 @@ const getTabBarIcon = (props: any) => {
 	if (route.key === 'rewards') {
 		return <FontAwesome name='trophy' size={24} color='white' />;
 	} else if (route.key === 'donations') {
-		return <FontAwesome5 name='hand-holding-heart' size={20} color='white' />;
+		return <MaterialIcons name='update' size={24} color='white' />;
 	} else if (route.key === 'account') {
 		return <FontAwesome name='user' size={20} color='white' />;
+	} else if (route.key === 'map') {
+		return <FontAwesome name='map-marker' size={24} color='white' />;
 	} else if (route.key === 'settings') {
 		return <FontAwesome5 name='cog' size={20} color='white' />;
 	}
@@ -50,16 +47,21 @@ export default function index({ navigation }: any) {
 		},
 		{ key: 'rewards' },
 		{
+			key: 'map',
+		},
+		{
 			key: 'account',
 		},
+
 		{
 			key: 'settings',
 		},
 	]);
 
 	const renderScene = SceneMap({
-		donations: Map,
-		rewards: Map,
+		donations: FirstRoute,
+		rewards: SecondRoute,
+		map: Map,
 		account: SecondRoute,
 		settings: FirstRoute,
 	});
