@@ -1,5 +1,5 @@
 import MapView from 'react-native-maps';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, View, Text, Dimensions } from 'react-native';
 import * as Permission from 'expo-permissions';
 
@@ -51,6 +51,8 @@ export default function Map() {
 		console.log(details, geometry);
 	};
 
+	let mapView = useRef(null) as any;
+
 	return (
 		<View style={{ flex: 1 }}>
 			<MapView
@@ -61,12 +63,17 @@ export default function Map() {
 				region={region}
 				showsUserLocation
 				loadingEnabled
+				ref={(el) => {
+					mapView = el;
+				}}
 			>
 				{destinationLoaded && (
 					<Directions
 						origin={region}
 						destination={destination}
-						onReady={() => {}}
+						onReady={(result: any) => {
+							mapView.fitToCoordinates(result.coordinates);
+						}}
 					/>
 				)}
 			</MapView>
