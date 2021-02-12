@@ -1,4 +1,5 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
+import { Platform } from 'react-native';
 
 export const LocationBox = styled.View`
 	background: #fff;
@@ -9,10 +10,24 @@ export const LocationBox = styled.View`
 	border: 1px solid #ddd;
 	border-radius: 3px;
 	flex-direction: row;
+	align-items: center;
+	/* width: 200px; */
+	height: 35px;
+	/* background-color: red; */
+
+	${Platform.select({
+		ios: css`
+			margin-top: 20px;
+		`,
+		android: css`
+			margin-top: 17px;
+			/* margin-left: -50px; */
+		`,
+	})};
 `;
 
 export const LocationText = styled.Text`
-	margin: 8px 10px;
+	padding: 8px 10px;
 	font-size: 14px;
 	color: #333;
 `;
