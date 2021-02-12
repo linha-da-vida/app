@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, Dimensions } from 'react-native';
 import * as Permission from 'expo-permissions';
 
-export default function index() {
+import Search from '../Search';
+
+export default function Map() {
 	const [region, setRegion] = useState({
 		latitude: 0,
 		longitude: 0,
@@ -37,6 +39,8 @@ export default function index() {
 				showsUserLocation
 				loadingEnabled
 			/>
+
+			<Search />
 		</View>
 	);
 }
