@@ -7,22 +7,37 @@ import {
 	TypeImage,
 	RequestButton,
 	RequestButtonText,
+	TypesContainer,
+	Type,
 } from './styles';
 
-import uberX from '../../../assets/uberx.png';
+import bike from '../../../assets/bike.png';
+import walking from '../../../assets/walking.png';
 
 export default function Details() {
 	return (
 		<Container>
-			<TypeTitle>Popular</TypeTitle>
-			<TypeDescription>Viagens baratas para o dia a dia</TypeDescription>
+			<TypeTitle>Navegação</TypeTitle>
+			<TypeDescription>
+				Escolha a opção mais segura para seu deslocamento
+			</TypeDescription>
 
-			<TypeImage source={uberX} />
-			<TypeTitle>UberX</TypeTitle>
-			<TypeDescription>R$ 6,00</TypeDescription>
+			<TypesContainer>
+				<Type>
+					<TypeImage source={walking} />
+					<TypeTitle>Caminhada</TypeTitle>
+					<TypeDescription>15 minutos</TypeDescription>
+				</Type>
+
+				<Type>
+					<TypeImage source={bike} />
+					<TypeTitle>Pedalada</TypeTitle>
+					<TypeDescription>5 minutos</TypeDescription>
+				</Type>
+			</TypesContainer>
 
 			<RequestButton onPress={() => {}}>
-				<RequestButtonText>SOLICITAR UBERX</RequestButtonText>
+				<RequestButtonText>Iniciar viagem</RequestButtonText>
 			</RequestButton>
 		</Container>
 	);

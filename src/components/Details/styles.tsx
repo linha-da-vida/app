@@ -29,6 +29,7 @@ export const TypeDescription = styled.Text`
 export const TypeImage = styled.Image`
 	height: 80px;
 	margin: 10px 0;
+	width: 80px;
 `;
 
 export const RequestButton = styled.TouchableOpacity`
@@ -44,4 +45,18 @@ export const RequestButtonText = styled.Text`
 	color: #fff;
 	font-weight: bold;
 	font-size: 18px;
+`;
+
+export const TypesContainer = styled.View`
+	display: flex;
+	flex-direction: row;
+	flex: 1;
+	width: 100%;
+	justify-content: space-evenly;
+`;
+
+export const Type = styled.View`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
