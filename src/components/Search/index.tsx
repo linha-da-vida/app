@@ -3,6 +3,7 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import Constants from 'expo-constants';
 import { Text, View } from 'react-native';
 import api from '../../config/api';
+import { v4 as uuidv4 } from 'uuid';
 
 const GooglePlacesInput = () => {
 	const [GCP_API_KEY, SET_GCP_API_KEY] = useState('');
@@ -34,6 +35,7 @@ const GooglePlacesInput = () => {
 					query={{
 						key: GCP_API_KEY,
 						language: 'pt',
+						sessiontoken: uuidv4(),
 					}}
 					fetchDetails
 					enablePoweredByContainer={false}
