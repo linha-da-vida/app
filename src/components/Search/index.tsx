@@ -14,6 +14,7 @@ const GooglePlacesInput = ({
 }: GPlacesAutocompleteProps) => {
 	const [GCP_API_KEY, SET_GCP_API_KEY] = useState('');
 	const [IS_API_KEY_LOADED, SET_IS_API_KEY_LOADED] = useState(false);
+	const [sessionTokenUUID, setSessionTokenUUID] = useState(uuidv4());
 
 	useEffect(() => {
 		(async () => {
@@ -34,11 +35,17 @@ const GooglePlacesInput = ({
 			{IS_API_KEY_LOADED ? (
 				<GooglePlacesAutocomplete
 					placeholder='Para onde?'
-					onPress={handleLocationSelected}
+					onPress={(details, geometry) => {
+						setSessionTokenUUID(uuidv4());
+						handleLocationSelected(details, geometry);
+					}}
 					query={{
 						key: GCP_API_KEY,
 						language: 'pt',
-						sessiontoken: uuidv4(),
+						sessiontoken: sessionTokenUUID,
+					}}
+					GooglePlacesDetailsQuery={{
+						sessiontoken: sessionTokenUUID,
 					}}
 					fetchDetails
 					enablePoweredByContainer={false}
