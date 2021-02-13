@@ -8,8 +8,8 @@
     
   </a>
 
-  <h2 align="center">Hackathon CCR 2ª Edição</h2>
-  <h3 align="center">Projeto Novo de Novo</h3>
+  <h2 align="center">Hackathon GOV PE</h2>
+  <h3 align="center">Projeto Linha da Vida</h3>
 
 <!-- ABOUT THE PROJECT -->
 
