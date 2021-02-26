@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import Constants from 'expo-constants';
+import ProfilePic from '../../../assets/profile-pic.jpg';
 
 export const Container = styled.View`
 	top: ${Constants.statusBarHeight}px;
@@ -114,4 +115,15 @@ export const RewardCard = styled.View`
 	height: 80%;
 	border-radius: 12px;
 	background-color: blue;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: flex-end;
+`;
+
+export const RewardCardTitle = styled.Text`
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	margin-right: 10px;
 `;

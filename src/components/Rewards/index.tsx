@@ -17,6 +17,7 @@ import {
 	RewardsTitle,
 	RewardsCarouselContainer,
 	RewardCard,
+	RewardCardTitle,
 } from './styles';
 import ProfilePic from '../../../assets/profile-pic.jpg';
 
@@ -48,8 +49,13 @@ export default function Rewards() {
 			<RewardsContainer>
 				<RewardsTitle>Recompensas</RewardsTitle>
 				<RewardsCarouselContainer>
-					<RewardCard />
-					<RewardCard />
+					<RewardCard>
+						<RewardCardTitle>Vale Cultural</RewardCardTitle>
+					</RewardCard>
+
+					<RewardCard>
+						<RewardCardTitle>#VaiDeBike</RewardCardTitle>
+					</RewardCard>
 				</RewardsCarouselContainer>
 			</RewardsContainer>
 
