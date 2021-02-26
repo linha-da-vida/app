@@ -18,6 +18,12 @@ export const ProfilePicture = styled.Image`
 	width: 100px;
 `;
 
+export const Username = styled.Text`
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+`;
+
 export const Title = styled.Text`
 	color: white;
 `;
