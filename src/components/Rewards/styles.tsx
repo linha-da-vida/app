@@ -71,4 +71,18 @@ export const InfoCard = styled.View`
 	background-color: #14ad14;
 	width: 100%;
 	height: 100px;
+	padding: 15px;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+`;
+
+export const InfoTitle = styled.Text`
+	color: #5fdaff;
+	font-size: 30px;
+	font-weight: bold;
+`;
+
+export const InfoText = styled.Text`
+	color: white;
+	font-size: 15px;
 `;

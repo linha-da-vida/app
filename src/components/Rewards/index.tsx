@@ -11,6 +11,8 @@ import {
 	UserLevelBar,
 	UserLevel,
 	InfoCard,
+	InfoTitle,
+	InfoText,
 } from './styles';
 import ProfilePic from '../../../assets/profile-pic.jpg';
 
@@ -31,7 +33,13 @@ export default function Rewards() {
 					</UserLevelBar>
 				</UserDetailsContainer>
 			</ProfileHeader>
-			<InfoCard />
+			<InfoCard>
+				<InfoTitle>#CidadãoConsciente</InfoTitle>
+				<InfoText>
+					Participe da comunidade e ganhe pontos que podem ser trocados por
+					recompensas!
+				</InfoText>
+			</InfoCard>
 
 			<Title>Rewards</Title>
 		</Container>
