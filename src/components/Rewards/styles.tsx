@@ -87,10 +87,31 @@ export const InfoText = styled.Text`
 `;
 
 export const RewardsContainer = styled.View`
-	background-color: blue;
 	width: 100%;
-	height: 40%;
+	height: 65%;
 	padding: 15px;
 	border-bottom-left-radius: 12px;
 	border-bottom-right-radius: 12px;
+`;
+
+export const RewardsTitle = styled.Text`
+	color: black;
+	font-size: 30px;
+	font-weight: bold;
+`;
+
+export const RewardsCarouselContainer = styled.View`
+	width: 100%;
+	height: 90%;
+	padding: 20px;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+`;
+
+export const RewardCard = styled.View`
+	width: 160px;
+	height: 80%;
+	border-radius: 12px;
+	background-color: blue;
 `;
