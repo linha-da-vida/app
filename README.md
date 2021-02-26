@@ -8,7 +8,7 @@
     
   </a>
 
-  <h2 align="center">Hackathon GOV PE</h2>
+  <h2 align="center">Hackathon GOV PE | 2ª fase</h2>
   <h3 align="center">Projeto Linha da Vida</h3>
 
 <!-- ABOUT THE PROJECT -->
@@ -23,12 +23,12 @@
 Um aplicativo com um mapa interativo que pode ser acessado por qualquer cidadão, permitindo traçar e analisar os caminhos mais seguros a se seguir. Por meio de uma interface intuitiva e voltada para o uso rápido, os cidadãos são capazes de registrar cenas e reportar os problemas percebidos nas ruas e avenidas usando categorias sugeridas. Com isso, os indivíduos alimentam um banco de dados que permite mapear, de forma qualitativa, cada irregularidade das vias individualmente.
 
 <p align="center" width="100%">
-  <img src="assets/onboarding.gif"  alt="Logo" width=150>
+  <img src="assets/intro8.gif"  alt="Logo" width=150>
 </p>
 Conforme se envolvem nessa atividade, os usuários se tornam parte de uma comunidade onde são reconhecidos por contribuírem com seus relatos, podem trocar informações uns com os outros e influenciar de forma mais direta nas decisões tomadas pelas autoridades responsáveis, ganhando reputação na plataforma. Assim como o poder público é possibilitado de notificar à população específica que sofre tais problemas assim que as soluções são implementadas.
 
 <p align="center" width="100%">
-  <img src="assets/Share.png"  alt="Logo" width=150>
+  <img src="assets/rewards.gif"  alt="Logo" width=150>
 </p>
 Dessa forma fica evidente para o poder público as localidades com maior demanda da população, o que leva a decisões fundamentadas quanto ao destino eficaz da verba pública investida na mobilidade e segurança no trânsito. Realizamos assim nosso objetivo de aproximar o governo da população e caminhar em direção à visão zero.
 
