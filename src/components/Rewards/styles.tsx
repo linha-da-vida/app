@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
+import Constants from 'expo-constants';
 
 export const Container = styled.View`
+	top: ${Constants.statusBarHeight}px;
 	background: black;
 	flex: 1;
 	width: 100%;
