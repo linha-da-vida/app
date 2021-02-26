@@ -1,10 +1,13 @@
 import React from 'react';
-import { Container, Title, ProfileHeader } from './styles';
+import { Container, Title, ProfileHeader, ProfilePicture } from './styles';
+import ProfilePic from '../../../assets/profile-pic.png';
 
 export default function Rewards() {
 	return (
 		<Container>
-			<ProfileHeader />
+			<ProfileHeader>
+				<ProfilePicture source={ProfilePic} />
+			</ProfileHeader>
 			<Title>Rewards</Title>
 		</Container>
 	);

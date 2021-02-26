@@ -13,6 +13,11 @@ export const ProfileHeader = styled.View`
 	width: 100%;
 `;
 
+export const ProfilePicture = styled.Image`
+	height: 100px;
+	width: 100px;
+`;
+
 export const Title = styled.Text`
 	color: white;
 `;
