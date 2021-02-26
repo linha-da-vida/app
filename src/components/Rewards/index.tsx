@@ -2,6 +2,7 @@ import React from 'react';
 import {
 	Container,
 	Title,
+	UserDetailsContainer,
 	PictureContainer,
 	ProfileHeader,
 	ProfilePicture,
@@ -18,8 +19,10 @@ export default function Rewards() {
 					<ProfilePicture source={ProfilePic} />
 				</PictureContainer>
 
-				<Username>Ana Paula</Username>
-				<City>RECIFE, PE</City>
+				<UserDetailsContainer>
+					<Username>Ana Paula</Username>
+					<City>RECIFE, PE</City>
+				</UserDetailsContainer>
 			</ProfileHeader>
 			<Title>Rewards</Title>
 		</Container>

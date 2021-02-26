@@ -14,13 +14,21 @@ export const ProfileHeader = styled.View`
 	background-color: green;
 	width: 100%;
 	padding: 20px 20px;
+	display: flex;
+	flex-direction: row;
 `;
 
 export const PictureContainer = styled.View`
 	width: 30%;
-	background-color: red;
 	display: flex;
 	align-items: center;
+`;
+
+export const UserDetailsContainer = styled.View`
+	width: 70%;
+	display: flex;
+	align-items: flex-start;
+	margin-left: 10px;
 `;
 
 export const ProfilePicture = styled.Image`
