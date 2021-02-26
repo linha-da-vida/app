@@ -10,6 +10,7 @@ import {
 	City,
 	UserLevelBar,
 	UserLevel,
+	InfoCard,
 } from './styles';
 import ProfilePic from '../../../assets/profile-pic.jpg';
 
@@ -30,6 +31,8 @@ export default function Rewards() {
 					</UserLevelBar>
 				</UserDetailsContainer>
 			</ProfileHeader>
+			<InfoCard />
+
 			<Title>Rewards</Title>
 		</Container>
 	);

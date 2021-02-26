@@ -7,6 +7,7 @@ export const Container = styled.View`
 	flex: 1;
 	width: 100%;
 	align-items: center;
+	flex-direction: column;
 `;
 
 export const ProfileHeader = styled.View`
@@ -64,4 +65,10 @@ export const UserLevel = styled.View`
 	border-radius: 12px;
 	width: 70%;
 	height: 15px;
+`;
+
+export const InfoCard = styled.View`
+	background-color: #14ad14;
+	width: 100%;
+	height: 100px;
 `;
