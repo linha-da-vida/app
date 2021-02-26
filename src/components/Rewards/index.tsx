@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Container, Title } from './styles';
 
-export default function index() {
+export default function Rewards() {
 	return (
-		<View>
-			<Text>Rewards</Text>
-		</View>
+		<Container>
+			<Title>Rewards</Title>
+		</Container>
 	);
 }
