@@ -3,7 +3,6 @@ import Constants from 'expo-constants';
 
 export const Container = styled.View`
 	top: ${Constants.statusBarHeight}px;
-	background: black;
 	flex: 1;
 	width: 100%;
 	align-items: center;
@@ -70,7 +69,7 @@ export const UserLevel = styled.View`
 export const InfoCard = styled.View`
 	background-color: #14ad14;
 	width: 100%;
-	height: 100px;
+	height: 15%;
 	padding: 15px;
 	border-bottom-left-radius: 12px;
 	border-bottom-right-radius: 12px;
@@ -85,4 +84,13 @@ export const InfoTitle = styled.Text`
 export const InfoText = styled.Text`
 	color: white;
 	font-size: 15px;
+`;
+
+export const RewardsContainer = styled.View`
+	background-color: blue;
+	width: 100%;
+	height: 40%;
+	padding: 15px;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
 `;
