@@ -118,6 +118,14 @@ export const RewardCard = styled.View`
 	flex-direction: column;
 	align-items: flex-end;
 	justify-content: flex-end;
+	position: relative;
+`;
+
+export const RewardImage = styled.Image`
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	border-radius: 12px;
 `;
 
 export const RewardCardTitle = styled.Text`

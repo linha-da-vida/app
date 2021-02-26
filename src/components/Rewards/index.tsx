@@ -18,8 +18,11 @@ import {
 	RewardsCarouselContainer,
 	RewardCard,
 	RewardCardTitle,
+	RewardImage,
 } from './styles';
 import ProfilePic from '../../../assets/profile-pic.jpg';
+import Festival from '../../../assets/festival.jpg';
+import TemBici from '../../../assets/tembici_promo.jpg';
 
 export default function Rewards() {
 	return (
@@ -50,11 +53,13 @@ export default function Rewards() {
 				<RewardsTitle>Recompensas</RewardsTitle>
 				<RewardsCarouselContainer>
 					<RewardCard>
+						<RewardImage source={Festival} />
 						<RewardCardTitle>Vale Cultural</RewardCardTitle>
 					</RewardCard>
 
 					<RewardCard>
-						<RewardCardTitle>#VaiDeBike</RewardCardTitle>
+						<RewardImage source={TemBici} />
+						<RewardCardTitle>Vale Cultural</RewardCardTitle>
 					</RewardCard>
 				</RewardsCarouselContainer>
 			</RewardsContainer>
