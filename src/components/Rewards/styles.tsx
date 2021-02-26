@@ -13,6 +13,13 @@ export const ProfileHeader = styled.View`
 	width: 100%;
 `;
 
+export const PictureContainer = styled.View`
+	width: 30%;
+	background-color: red;
+	display: flex;
+	align-items: center;
+`;
+
 export const ProfilePicture = styled.Image`
 	height: 100px;
 	width: 100px;

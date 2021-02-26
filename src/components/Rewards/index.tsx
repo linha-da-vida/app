@@ -2,6 +2,7 @@ import React from 'react';
 import {
 	Container,
 	Title,
+	PictureContainer,
 	ProfileHeader,
 	ProfilePicture,
 	Username,
@@ -13,7 +14,9 @@ export default function Rewards() {
 	return (
 		<Container>
 			<ProfileHeader>
-				<ProfilePicture source={ProfilePic} />
+				<PictureContainer>
+					<ProfilePicture source={ProfilePic} />
+				</PictureContainer>
 
 				<Username>Ana Paula</Username>
 				<City>RECIFE, PE</City>
