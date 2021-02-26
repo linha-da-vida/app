@@ -12,6 +12,7 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { FontAwesome, MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
 
 import Map from '../Map';
+import Rewards from '../Rewards';
 
 const SecondRoute = () => (
 	<View style={[styles.scene, { backgroundColor: '#275E4D' }]}></View>
@@ -62,7 +63,7 @@ export default function index({ navigation }: any) {
 		donations: FirstRoute,
 		rewards: SecondRoute,
 		map: Map,
-		account: SecondRoute,
+		account: Rewards,
 		settings: FirstRoute,
 	});
 
