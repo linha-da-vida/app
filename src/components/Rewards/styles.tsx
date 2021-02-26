@@ -11,6 +11,7 @@ export const ProfileHeader = styled.View`
 	height: 20%;
 	background-color: green;
 	width: 100%;
+	padding: 20px 20px;
 `;
 
 export const PictureContainer = styled.View`
