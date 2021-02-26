@@ -24,6 +24,11 @@ export const Username = styled.Text`
 	font-weight: bold;
 `;
 
+export const City = styled.Text`
+	color: white;
+	font-size: 14px;
+`;
+
 export const Title = styled.Text`
 	color: white;
 `;
