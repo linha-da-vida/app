@@ -8,6 +8,8 @@ import {
 	ProfilePicture,
 	Username,
 	City,
+	UserLevelBar,
+	UserLevel,
 } from './styles';
 import ProfilePic from '../../../assets/profile-pic.jpg';
 
@@ -22,6 +24,10 @@ export default function Rewards() {
 				<UserDetailsContainer>
 					<Username>Ana Paula</Username>
 					<City>RECIFE, PE</City>
+
+					<UserLevelBar>
+						<UserLevel />
+					</UserLevelBar>
 				</UserDetailsContainer>
 			</ProfileHeader>
 			<Title>Rewards</Title>

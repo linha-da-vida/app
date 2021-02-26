@@ -50,3 +50,18 @@ export const City = styled.Text`
 export const Title = styled.Text`
 	color: white;
 `;
+
+export const UserLevelBar = styled.View`
+	background-color: whitesmoke;
+	border-radius: 12px;
+	width: 90%;
+	height: 15px;
+	margin-top: 20px;
+`;
+
+export const UserLevel = styled.View`
+	background-color: #09c5d6;
+	border-radius: 12px;
+	width: 70%;
+	height: 15px;
+`;
